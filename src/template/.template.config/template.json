@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "dbones labs",
+    "classifications": [
+        "dotnet",
+        "library"
+    ],
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "identity": "DBones.Template.DotNet.Library",
+    "name": "single library solution setup",
+    "shortName": "dotnet-lib",
+    "sourceName": "ProjectName",
+
+    "symbols": {
+        "organisation-name": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "organisation-name",
+            "defaultValue": "dbones-labs"
+        },
+        "project-name": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "project-name",
+            "defaultValue": ""
+        }
+    }
+}
