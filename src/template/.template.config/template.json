@@ -3,7 +3,8 @@
     "author": "dbones labs",
     "classifications": [
         "dotnet",
-        "library"
+        "library",
+        "lab"
     ],
     "tags": {
         "language": "C#",
