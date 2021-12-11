@@ -58,11 +58,12 @@ jobs:
             cd ./src
             ls
 
+            dotnet nuget add source https://nuget.pkg.github.com/organisation-name/index.json -n github -u dbones -p ${GH_TOKEN} --store-password-in-clear-text
             dotnet restore --packages packages
             dotnet build --no-restore --configuration Release --force -p:Version=$APP_VERSION
 
             mkdir ./../nupkgs
-            mv ./bin/**/*.nupkg ./../nupkgs
+            mv ./**/bin/**/*.nupkg ./../nupkgs
 
             cd ./../nupkgs
             rm *.symbols.nupkg
@@ -77,7 +78,7 @@ jobs:
 
   test:
     docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:5.0
+      - image: mcr.microsoft.com/dotnet/sdk:5.0
     steps:
       - attach_workspace:
           at: ./
@@ -137,8 +138,9 @@ workflows:
           filters:
             branches:
               ignore:
-                - docs
+                - docs-branch
       - build:
+          context: build-ctx
           requires:
             - setup
       - test:
@@ -150,7 +152,7 @@ workflows:
             - test
           filters:
             branches:
-              only: master
+              only: main-branch
       - publish:
           context: build-ctx
           requires:
