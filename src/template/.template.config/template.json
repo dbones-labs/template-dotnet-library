@@ -27,6 +27,18 @@
             "datatype": "text",
             "replaces": "project-name",
             "defaultValue": ""
+        },
+        "main-branch": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "main-branch",
+            "defaultValue": "main"
+        },
+        "docs-branch": {
+            "type": "parameter",
+            "datatype": "text",
+            "replaces": "docs-branch",
+            "defaultValue": "docs"
         }
     }
 }
